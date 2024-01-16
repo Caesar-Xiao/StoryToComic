@@ -13,3 +13,13 @@ export interface MenuEvents {
     deleteEvent?: Function;
     settingEvent?: Function;
 }
+
+export interface PicturePromptType {
+    content: string;
+    prompt: string;
+}
+
+export interface PicturePromptStore {
+    error: any;
+    prompts: PicturePromptType[];
+}

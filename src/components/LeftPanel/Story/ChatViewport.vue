@@ -17,7 +17,7 @@
     import loadTextFile from "@/utils/LoadTextFile";
     import type { StoryTextObject, MenuEvents } from '@/utils/Types';
     import useStoryStore from '@/store/story';
-    import Menu from '../Menu.vue';
+    import Menu from '@/components/Menu.vue';
 
     // story
     const storyDom = ref();
@@ -38,6 +38,7 @@
             background: '#ebeef5',
         });
     }
+
 
     // menu
     const menuDisabled = ref(true);

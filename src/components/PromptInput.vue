@@ -1,6 +1,6 @@
 <template>
     <div id="promptInput">
-        <el-input v-model="prompt" :placeholder=placeholder :type="inputType" />
+        <el-input v-model="prompt" :placeholder=placeholder :type="inputType" :autosize="autosize" :resize="resize" />
         <img v-if="!sendDisabled" @click="sendPrompt" src="@/assets/images/send.png">
         <img v-if="sendDisabled" id="disabled" src="@/assets/images/send-disabled.png">
     </div>
@@ -22,6 +22,16 @@
             required: false,
             type: String,
             default: ''
+        },
+        autosize: {
+            required: false,
+            type: Boolean,
+            default: false
+        },
+        resize: {
+            required: false,
+            type: String,
+            default: 'none'
         },
         placeholder: {
             required: false,

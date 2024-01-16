@@ -57,4 +57,40 @@ router.post('/load-story', (req, res) => {
     });
 });
 
+router.post('/load-prompt', (req, res) => {
+  fs.readFile(path.join(__dirname, '../result/prompt'),
+    (err, data) => {
+      data = String(data);
+      const prompts = [];
+
+      if (err) {
+        console.error(err.message);
+        res.send({
+          prompts,
+          error: err.message
+        });
+        return;
+      }
+
+      const textArray = data.split('\n======\n');
+      if (!textArray[textArray.length - 1])
+        textArray.pop();
+
+      for (let i = 0; i < textArray.length; ++i) {
+        const paragraph = textArray[i];
+        const paragraphArray = paragraph.split('\n');
+        prompts.push({
+          content: paragraphArray[0],
+          prompt: paragraphArray[1]
+        });
+      }
+
+      res.send({
+        prompts,
+        error: null
+      });
+    });
+});
+
+
 module.exports = router;

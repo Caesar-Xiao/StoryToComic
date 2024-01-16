@@ -8,7 +8,7 @@
 
 <script setup lang="ts" name="StoryPanel">
   import ChatViewport from './ChatViewport.vue';
-  import PromptInput from '../PromptInput.vue';
+  import PromptInput from '@/components/PromptInput.vue';
 </script>
 
 <style scoped>

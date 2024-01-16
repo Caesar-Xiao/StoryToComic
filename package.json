@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "start": "vite | node ./server/bin/www",
     "client": "vite",
-    "server": "node ./server/bin/www",
+    "server": "nodemon ./server/bin/www",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",

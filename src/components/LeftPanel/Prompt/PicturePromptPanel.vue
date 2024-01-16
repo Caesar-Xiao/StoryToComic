@@ -1,12 +1,12 @@
 <template>
     <div class="ChildPanel" id="picturePrompt">
         <PicturePromptViewport></PicturePromptViewport>
-        <PromptInput input-type="textarea" prompt-type="Story" placeholder="请输入故事文本"></PromptInput>
+        <PromptInput input-type="textarea" prompt-type="Picture" :autosize="true" placeholder="请输入故事文本" />
     </div>
 </template>
 
-<script setup lang="ts" name="PicturePrompt">
-    import PromptInput from '../PromptInput.vue';
+<script setup lang="ts" name="PicturePromptPanel">
+    import PromptInput from '@/components/PromptInput.vue';
     import PicturePromptViewport from './PicturePromptViewport.vue';
 </script>
 
