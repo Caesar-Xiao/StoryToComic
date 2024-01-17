@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import type { PicturePromptType } from "@/utils/Types";
 
-const usePicturePrompt = defineStore("picture_prompt", {
+const usePicturePromptStore = defineStore("picture_prompt", {
     state() {
         const prompts: PicturePromptType[] = [];
 
@@ -12,4 +12,4 @@ const usePicturePrompt = defineStore("picture_prompt", {
     }
 });
 
-export default usePicturePrompt;
+export default usePicturePromptStore;

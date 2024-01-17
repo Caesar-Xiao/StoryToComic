@@ -6,8 +6,8 @@
 </template>
 
 <script setup lang="ts" name="LeftPanel">
-  import StoryPanel from './Story/StoryPanel.vue';
-  import PicturePromptPanel from './Prompt/PicturePromptPanel.vue';
+  import StoryPanel from './StoryPanel.vue';
+  import PicturePromptPanel from './PicturePromptPanel.vue';
 
 </script>
 

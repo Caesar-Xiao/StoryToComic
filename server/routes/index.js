@@ -57,7 +57,7 @@ router.post('/load-story', (req, res) => {
     });
 });
 
-router.post('/load-prompt', (req, res) => {
+router.post('/load-picture-prompt', (req, res) => {
   fs.readFile(path.join(__dirname, '../result/prompt'),
     (err, data) => {
       data = String(data);
@@ -91,6 +91,5 @@ router.post('/load-prompt', (req, res) => {
       });
     });
 });
-
 
 module.exports = router;

@@ -53,7 +53,14 @@ class GeneratePicturePrompt(object):
             )
 
             if response.status_code == HTTPStatus.OK:
-                self.picture_prompts.append(response.output.choices[0]['message']['content'])
+                picture_prompt = response.output.choices[0]['message']['content']
+                self.picture_prompts.append(picture_prompt)
+                self.messages.append(
+                {
+                    'role': response.output.choices[0]['message']['role'],
+                    'content': picture_prompt
+                }
+            )
             else:
                 raise Exception(response.message)
 

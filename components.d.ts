@@ -24,13 +24,14 @@ declare module 'vue' {
     MiddelPanel: typeof import('./src/components/MiddelPanel/MiddelPanel.vue')['default']
     MiddlePanel: typeof import('./src/components/MiddlePanel/MiddlePanel.vue')['default']
     PicturePrompt: typeof import('./src/components/LeftPanel/PicturePrompt.vue')['default']
-    PicturePromptPanel: typeof import('./src/components/LeftPanel/Prompt/PicturePromptPanel.vue')['default']
+    PicturePromptPanel: typeof import('./src/components/LeftPanel/PicturePromptPanel.vue')['default']
     PicturePromptViewport: typeof import('./src/components/LeftPanel/Prompt/PicturePromptViewport.vue')['default']
     PromptInput: typeof import('./src/components/PromptInput.vue')['default']
     RightPanel: typeof import('./src/components/RightPanel/RightPanel.vue')['default']
     SendButton: typeof import('./src/components/LeftPanel/SendButton.vue')['default']
-    StoryPanel: typeof import('./src/components/LeftPanel/Story/StoryPanel.vue')['default']
+    StoryPanel: typeof import('./src/components/LeftPanel/StoryPanel.vue')['default']
     TextViewport: typeof import('./src/components/LeftPanel/TextViewport.vue')['default']
+    Viewport: typeof import('./src/components/Viewport.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
