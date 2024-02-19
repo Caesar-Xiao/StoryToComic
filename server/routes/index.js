@@ -23,12 +23,12 @@ router.get('/call-python', (req, res) => {
   pythonProcess.stdout.on('data', (message) => {
     message = String(message).trim();
     if (message !== 'Over')
-      console.error(`Call Python Error: ${message}`);
+      console.error(message);
     res.send(message);
   });
 
   // 监听子进程的错误事件
-  pythonProcess.stderr.on('data', (error) => console.error(`Call Python Error: ${error}`));
+  pythonProcess.stderr.on('data', (error) => console.error(error));
 });
 
 router.post('/load-story', (req, res) => {
@@ -37,7 +37,7 @@ router.post('/load-story', (req, res) => {
       data = String(data);
 
       if (err) {
-        console.error(`Load Story Error: ${err.message}`);
+        console.error(err.message);
         res.send({
           title: '',
           content: '',
@@ -47,13 +47,10 @@ router.post('/load-story', (req, res) => {
         return;
       }
 
-      const textArray = data.split('\n').filter(t => t.trim());
+      const textArray = data.split('\n');
       const titleIndex = textArray[0].includes('《') ? 0 : 1;
-      for (let i = 0; i < textArray.length; ++i)
-        textArray[i] = textArray[i].trim();
-
       res.send({
-        title: textArray[titleIndex].replace(/《|》/g, ''),
+        title: textArray[titleIndex].split("：").pop().replace(/《|》/g, ''),
         content: textArray.slice(titleIndex + 1, textArray.length - 1).join('\n'),
         error: null
       });
@@ -67,7 +64,7 @@ router.post('/load-picture-prompt', (req, res) => {
       const prompts = [];
 
       if (err) {
-        console.error(`Load Picture Prompt Error: ${err.message}`);
+        console.error(err.message);
         res.send({
           prompts,
           error: err.message

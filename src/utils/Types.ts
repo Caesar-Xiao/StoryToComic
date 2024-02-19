@@ -12,7 +12,6 @@ export interface MenuEvents {
     editEvent?: Function;
     deleteEvent?: Function;
     settingEvent?: Function;
-    extractEvent?: Function;
 }
 
 export interface PicturePromptType {

@@ -28,7 +28,6 @@
             Object.assign(dataStore, story);
             if (dataStore.error)
                 ElMessage(`${info}读取失败！\n${dataStore.error}`);
-            console.log(story.content)
         });
     };
     function setLoading() {

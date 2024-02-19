@@ -7,18 +7,33 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ChatViewport: typeof import('./src/components/LeftPanel/Story/ChatViewport.vue')['default']
+    Delete: typeof import('./src/components/Icons/Delete.vue')['default']
+    Edit: typeof import('./src/components/Icons/Edit.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCol: typeof import('element-plus/es')['ElCol']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
+    ElMenu: typeof import('element-plus/es')['ElMenu']
+    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
+    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    ElTable: typeof import('element-plus/es')['ElTable']
     ElText: typeof import('element-plus/es')['ElText']
-    ExtractPrompt: typeof import('./src/components/Icons/ExtractPrompt.vue')['default']
     LeftPanel: typeof import('./src/components/LeftPanel/LeftPanel.vue')['default']
     Menu: typeof import('./src/components/Menu.vue')['default']
+    MiddelPanel: typeof import('./src/components/MiddelPanel/MiddelPanel.vue')['default']
     MiddlePanel: typeof import('./src/components/MiddlePanel/MiddlePanel.vue')['default']
+    PicturePrompt: typeof import('./src/components/LeftPanel/PicturePrompt.vue')['default']
     PicturePromptPanel: typeof import('./src/components/LeftPanel/PicturePromptPanel.vue')['default']
+    PicturePromptViewport: typeof import('./src/components/LeftPanel/Prompt/PicturePromptViewport.vue')['default']
     PromptInput: typeof import('./src/components/PromptInput.vue')['default']
     RightPanel: typeof import('./src/components/RightPanel/RightPanel.vue')['default']
+    SendButton: typeof import('./src/components/LeftPanel/SendButton.vue')['default']
     StoryPanel: typeof import('./src/components/LeftPanel/StoryPanel.vue')['default']
+    TextViewport: typeof import('./src/components/LeftPanel/TextViewport.vue')['default']
     Viewport: typeof import('./src/components/Viewport.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
