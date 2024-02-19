@@ -22,7 +22,7 @@ class GenerateStory(object):
         self.set_config()
 
     def set_config(self):
-        self.config = json.load(open(os.path.join(script_dir, './config.json'), 'r'))
+        self.config = json.load(open(os.path.join(script_dir, './config.json'), 'r', encoding='utf-8'))
         self.path = self.config['story_path']
         self.messages = self.config['messages']['story']
         self.chat_model = self.config['chat_model']

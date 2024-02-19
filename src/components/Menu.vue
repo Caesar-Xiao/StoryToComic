@@ -10,6 +10,11 @@
                 <Setting />
             </el-icon>
         </el-button>
+        <el-button :disabled="disabled" @click="events.extractEvent" size="small" color="#91acb7" type="primary" circle>
+            <el-icon color="white" size="15">
+                <ExtractPrompt />
+            </el-icon>
+        </el-button>
         <el-button :disabled="disabled" @click="events.deleteEvent" size="small" color="#91acb7" type="primary" circle>
             <el-icon color="white" size="15">
                 <Delete />
@@ -21,6 +26,7 @@
 <script setup lang="ts" name="Menu">
     import { Delete, Setting, Edit } from '@element-plus/icons-vue';
     import type { MenuEvents } from '@/utils/Types';
+    import ExtractPrompt from './Icons/ExtractPrompt.vue';
 
     defineProps<{
         events: MenuEvents;
