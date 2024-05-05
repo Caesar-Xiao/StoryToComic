@@ -7,7 +7,7 @@
 <script setup lang="ts" name="Viewport">
     import { ref, watch, inject, type Ref } from "vue";
     import emitter from '@/utils/Emitter';
-    import callPthon from "@/utils/PythonCaller";
+    import callPython from "@/utils/PythonCaller";
     import { ElMessage, ElLoading } from 'element-plus';
     import loadTextFile from "@/utils/LoadTextFile";
     import type { StoryTextObject, PicturePromptType } from '@/utils/Types';
@@ -21,14 +21,14 @@
         postHandler?: Function;
     }>();
 
-    // // result
+    // result
     const showResult = ref(false);
     const loadResult = () => {
         loadTextFile(`load-${type.toLowerCase()}`, (story: StoryTextObject | PicturePromptType) => {
             Object.assign(dataStore, story);
             if (dataStore.error)
                 ElMessage(`${info}读取失败！\n${dataStore.error}`);
-            console.log(story.content)
+            console.log(dataStore)
         });
     };
     function setLoading() {
@@ -41,7 +41,7 @@
     }
 
 
-    // // prompt
+    // prompt
     const prompt = ref('');
     const typeStr = type.replace('-', '');
     emitter.on(`share${typeStr}Prompt`, (ppt: string) => prompt.value = ppt);
@@ -52,7 +52,7 @@
         preHandler?.();
         emitter.emit('setSendButtonStatus', true);
 
-        callPthon(`Generate${typeStr}`, value,
+        callPython(`Generate${typeStr}`, value,
             (res: string) => {
                 if (res === 'Over')
                     loadResult();

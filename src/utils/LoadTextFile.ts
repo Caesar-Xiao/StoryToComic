@@ -1,7 +1,7 @@
-import axiosRequst from "./Axios";
+import axiosRequest from "./Axios";
 
 export default function loadTextFile(url: string, callback?: Function) {
-    axiosRequst.post(`/${url}`)
+    axiosRequest.post(`/${url}`)
         .then((res) => {
             if (callback)
                 callback(res);

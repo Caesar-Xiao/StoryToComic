@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //使用create方法创建axios实例
-const axiosRequst = axios.create({
+const axiosRequest = axios.create({
     baseURL: '/api',
     headers: {
         'Content-Type': 'application/json;charset=UTF-8'
@@ -9,15 +9,15 @@ const axiosRequst = axios.create({
 });
 
 // 添加请求拦截器
-axiosRequst.interceptors.request.use(
+axiosRequest.interceptors.request.use(
     config => config,
     error => Promise.reject(error)
 );
 
 // 添加响应拦截器
-axiosRequst.interceptors.response.use(
+axiosRequest.interceptors.response.use(
     response => response.data,
     error => Promise.reject(error)
 );
 
-export default axiosRequst;
+export default axiosRequest;

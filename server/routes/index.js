@@ -75,17 +75,17 @@ router.post('/load-picture-prompt', (req, res) => {
         return;
       }
 
-      const textArray = data.split('\n======\n');
-      if (!textArray[textArray.length - 1])
-        textArray.pop();
-
+      const textArray = data.split('======');
       for (let i = 0; i < textArray.length; ++i) {
-        const paragraph = textArray[i];
-        const paragraphArray = paragraph.split('\n');
-        prompts.push({
-          content: paragraphArray[0],
-          prompt: paragraphArray[1]
-        });
+        const paragraph = textArray[i].trim();
+        
+        if (paragraph) {
+          const paragraphArray = paragraph.split('\n');
+          prompts.push({
+            content: paragraphArray[0].trim(),
+            prompt: paragraphArray[1].trim(),
+          });
+        }
       }
 
       res.send({

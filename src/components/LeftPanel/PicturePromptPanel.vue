@@ -2,7 +2,11 @@
     <div class="ChildPanel" id="picturePromptViewport">
         <Viewport type="Picture-Prompt" info="提示词" :data-store="picturePromptStore">
             <template #default="{ showResult }">
-                <div id="picturePrompt" ref="picturePromptDom">
+                <div v-show="showResult" id="picturePrompt" ref="picturePromptDom">
+                    <div v-for="prompt in picturePromptStore.prompts" class="promptDisplay">
+                        <p class="originalText">{{ prompt.content }}</p>
+                        <p class="promptText">{{ prompt.prompt }}</p>
+                    </div>
                 </div>
             </template>
         </Viewport>
@@ -31,6 +35,26 @@
     #picturePrompt {
         width: 100%;
         padding: 10px;
-        height: calc(100% - 42px);
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .promptDisplay {
+        text-indent: 2em;
+        margin-bottom: 15px;
+        color: white;
+    }
+
+    .originalText{
+        border-radius: 5px;
+        padding: 0 5px 5px 5px;
+        background-color: #91acb7;
+        margin-bottom: 5px;
+    }
+
+    .promptText{
+        border-radius: 5px;
+        padding: 0 5px 5px 5px;
+        background-color: #56a859;
     }
 </style>
