@@ -3,10 +3,10 @@
         <Viewport type="Pictures" info="图片" :data-store="pictureStore">
             <template #default="{ showResult }">
                 <div v-show="showResult" id="pictures" ref="pictureDom">
-                    <div v-for="(pictures, index) in pictureStore.pictures">
+                    <div v-for="(pictures, index) in pictureStore.pictures" class="imagesContainer">
                         <p>aaaaaa</p>
                         <div>
-                            <img v-for="picture in pictures" :src="picture" />
+                            <img v-for="picture in pictures" :src="picture" :draggable="true"/>
                         </div>
                     </div>
                 </div>
@@ -40,5 +40,15 @@
         width: 100%;
         height: 100%;
         overflow-y: auto;
+        font-size: 20px;
+    }
+
+    .imagesContainer {
+        display: flex;
+        flex-direction: row;
+        height: 300px;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+        text-indent: 2em;
     }
 </style>

@@ -3,7 +3,8 @@
         <Viewport type="Picture-Prompt" info="提示词" :data-store="picturePromptStore">
             <template #default="{ showResult }">
                 <div v-show="showResult" id="picturePrompt" ref="picturePromptDom">
-                    <div v-for="prompt in picturePromptStore.prompts" class="promptDisplay">
+                    <div v-for="(prompt, index) in picturePromptStore.prompts" class="promptDisplay"
+                        @mouseover="showMenu(index)" @mouseleave="hideMenu(index)">
                         <p class="originalText">{{ prompt.content }}</p>
                         <p class="promptText">{{ prompt.prompt }}</p>
                     </div>
@@ -23,6 +24,17 @@
     const picturePromptStore = usePicturePromptStore();
     const picturePromptDom = ref();
     provide('loadingDom', picturePromptDom);
+
+    // menu
+    function showMenu(index: number) {
+        
+
+    }
+
+    function hideMenu(index: number) {
+
+
+    }
 </script>
 
 <style scoped>
@@ -45,14 +57,14 @@
         color: white;
     }
 
-    .originalText{
+    .originalText {
         border-radius: 5px;
         padding: 0 5px 5px 5px;
         background-color: #91acb7;
         margin-bottom: 5px;
     }
 
-    .promptText{
+    .promptText {
         border-radius: 5px;
         padding: 0 5px 5px 5px;
         background-color: #56a859;
