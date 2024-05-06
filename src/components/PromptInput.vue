@@ -56,8 +56,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: calc(100% - 10px);
-        margin: 5px;
+        width: calc(100% - 20px);
+        margin: 10px;
     }
 
     img {

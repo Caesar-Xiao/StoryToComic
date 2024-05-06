@@ -12,6 +12,7 @@ declare module 'vue' {
     ElInput: typeof import('element-plus/es')['ElInput']
     ElText: typeof import('element-plus/es')['ElText']
     ExtractPrompt: typeof import('./src/components/Icons/ExtractPrompt.vue')['default']
+    GeneratePicture: typeof import('./src/components/Icons/GeneratePicture.vue')['default']
     LeftPanel: typeof import('./src/components/LeftPanel/LeftPanel.vue')['default']
     Menu: typeof import('./src/components/Menu.vue')['default']
     MiddlePanel: typeof import('./src/components/MiddlePanel/MiddlePanel.vue')['default']

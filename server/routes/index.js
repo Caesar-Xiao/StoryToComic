@@ -78,7 +78,7 @@ router.post('/load-picture-prompt', (req, res) => {
       const textArray = data.split('======');
       for (let i = 0; i < textArray.length; ++i) {
         const paragraph = textArray[i].trim();
-        
+
         if (paragraph) {
           const paragraphArray = paragraph.split('\n');
           prompts.push({
@@ -94,5 +94,38 @@ router.post('/load-picture-prompt', (req, res) => {
       });
     });
 });
+
+router.post('/load-pictures', (req, res) => {
+  const imagesPath = path.join(__dirname, '../result/images');
+  fs.readdir(imagesPath, (err, files) => {
+    const pictures = [];
+
+    if (err) {
+      console.error(`Load Pictures Error: ${err.message}`);
+      res.send({
+        pictures,
+        error: err.message
+      });
+      return;
+    }
+
+    for (let i = 0; i < files.length; ++i) {
+      const imageName = files[i];
+      const nameArray = imageName.split('_');
+      const promptIndex = Number(nameArray[1]);
+      const image = fs.readFileSync(path.join(imagesPath, imageName));
+
+      if (pictures.length <= promptIndex)
+        pictures.push([]);
+      pictures[promptIndex].push(`data:image/png;base64,${image.toString('base64')}`);
+    }
+
+    res.send({
+      pictures,
+      error: null
+    });
+  });
+});
+
 
 module.exports = router;

@@ -18,7 +18,7 @@
     import { ref, provide } from 'vue';
     import Viewport from '@/components/Viewport.vue';
     import PromptInput from '@/components/PromptInput.vue';
-    import usePicturePromptStore from '@/store/picture-rompt';
+    import usePicturePromptStore from '@/store/picture-prompt';
 
     const picturePromptStore = usePicturePromptStore();
     const picturePromptDom = ref();

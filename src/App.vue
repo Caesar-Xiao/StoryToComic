@@ -1,12 +1,12 @@
 <template>
   <LeftPanel></LeftPanel>
-  <MiddelPanel></MiddelPanel>
+  <MiddlePanel></MiddlePanel>
   <RightPanel></RightPanel>
 </template>
 
 <script setup lang="ts" name="App">
   import LeftPanel from "./components/LeftPanel/LeftPanel.vue";
-  import MiddelPanel from "./components/MiddlePanel/MiddlePanel.vue";
+  import MiddlePanel from "./components/MiddlePanel/MiddlePanel.vue";
   import RightPanel from "./components/RightPanel/RightPanel.vue";
 </script>
 

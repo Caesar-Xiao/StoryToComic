@@ -20,11 +20,12 @@
 </template>
 
 <script setup lang="ts" name="StoryPanel">
+  import type { MenuEvents } from '@/utils/Types';
+  
   import Viewport from '@/components/Viewport.vue';
   import PromptInput from '@/components/PromptInput.vue';
   import Menu from '@/components/Menu.vue';
   import { ref, provide } from "vue";
-  import type { MenuEvents } from '@/utils/Types';
   import useStoryStore from '@/store/story';
   import emitter from '@/utils/Emitter';
 

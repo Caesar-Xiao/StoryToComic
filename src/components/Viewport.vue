@@ -10,7 +10,7 @@
     import callPython from "@/utils/PythonCaller";
     import { ElMessage, ElLoading } from 'element-plus';
     import loadTextFile from "@/utils/LoadTextFile";
-    import type { StoryTextObject, PicturePromptType } from '@/utils/Types';
+    import type { StoryTextObject, PicturePromptObject, PicturesObject } from '@/utils/Types';
 
     const loadingDom = inject('loadingDom') as Ref<any>;
     const { type, info, dataStore, preHandler, postHandler } = defineProps<{
@@ -24,11 +24,11 @@
     // result
     const showResult = ref(false);
     const loadResult = () => {
-        loadTextFile(`load-${type.toLowerCase()}`, (story: StoryTextObject | PicturePromptType) => {
-            Object.assign(dataStore, story);
+        loadTextFile(`load-${type.toLowerCase()}`, (data: StoryTextObject | PicturePromptObject | PicturesObject) => {
+            Object.assign(dataStore, data);
             if (dataStore.error)
                 ElMessage(`${info}读取失败！\n${dataStore.error}`);
-            console.log(dataStore)
+            console.log(data);
         });
     };
     function setLoading() {
@@ -73,6 +73,6 @@
     #viewport {
         width: 100%;
         padding: 10px;
-        height: calc(100% - 42px);
+        height: calc(100% - 52px);
     }
 </style>

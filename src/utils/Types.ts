@@ -15,12 +15,23 @@ export interface MenuEvents {
     extractEvent?: Function;
 }
 
+export interface PicturePromptObject {
+    prompts: PicturePromptType;
+    error: any;
+}
+
 export interface PicturePromptType {
     content: string;
     prompt: string;
+}
+
+export interface PicturesObject {
+    pictures: string[][];
+    error: any;
 }
 
 export interface PicturePromptStore {
     error: any;
     prompts: PicturePromptType[];
 }
+
